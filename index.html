@@ -1,0 +1,4348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================================================
+         BASIC DOCUMENT INFORMATION
+         ========================================================= -->
+
+    <!-- Browser को बताता है कि यह HTML5 document है -->
+
+    <!-- Character encoding UTF-8 रख रहे हैं -->
+    <meta charset="UTF-8">
+
+    <!-- Mobile devices के लिए responsive viewport -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <!-- Browser tab में दिखाई देने वाला title -->
+    <title>APNA YOUTUBE - Indian Creator Hub</title>
+
+    <!-- Search engines के लिए छोटा description -->
+    <meta
+        name="description"
+        content="A beginner friendly video streaming application clone"
+    >
+
+    <!-- Browser theme color -->
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <!-- Google font connection -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Google font server connection -->
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <!-- Main font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =========================================================
+         ICON LIBRARY
+         ========================================================= -->
+
+    <!-- Font Awesome icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- =========================================================
+         CSS FILE
+         ========================================================= -->
+
+    <!-- External CSS file बाद में बनाया जाएगा -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         PAGE LOADER
+         ========================================================= -->
+
+    <!--
+        जब application load होगी तब यह loader दिख सकता है।
+        JavaScript बाद में इसे hide कर सकता है।
+    -->
+
+    <div
+        id="pageLoader"
+        class="page-loader"
+        aria-label="Loading application"
+    >
+
+        <div class="loader-content">
+
+            <!-- Loading icon -->
+            <div class="loader-spinner">
+                <i class="fa-solid fa-spinner"></i>
+            </div>
+
+            <!-- Loading text -->
+            <p>Loading APNA YOUTUBE...</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         TOP NAVIGATION BAR
+         ========================================================= -->
+
+    <header
+        id="topNavbar"
+        class="top-navbar"
+    >
+
+        <!-- -----------------------------------------------------
+             LEFT SIDE OF NAVBAR
+             ----------------------------------------------------- -->
+
+        <div class="navbar-left">
+
+            <!-- Sidebar menu button -->
+            <button
+                id="menuButton"
+                class="icon-button"
+                type="button"
+                aria-label="Open menu"
+                title="Menu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <!-- Application logo -->
+            <a
+                href="#"
+                class="brand-logo"
+                id="brandLogo"
+            >
+
+                <!-- Logo icon -->
+                <span class="brand-icon">
+
+                    <i class="fa-solid fa-play"></i>
+
+                </span>
+
+                <!-- Logo text -->
+                <span class="brand-text">
+                    YOUTUBE
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- -----------------------------------------------------
+             CENTER SEARCH AREA
+             ----------------------------------------------------- -->
+
+        <div class="navbar-center">
+
+            <!-- Search form -->
+            <form
+                id="searchForm"
+                class="search-form"
+                autocomplete="off"
+            >
+
+                <!-- Search input -->
+                <input
+                    id="searchInput"
+                    name="search"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search videos"
+                >
+
+                <!-- Clear search button -->
+                <button
+                    id="clearSearchButton"
+                    class="clear-search-button"
+                    type="button"
+                    aria-label="Clear search"
+                    title="Clear search"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+
+                <!-- Search button -->
+                <button
+                    id="searchButton"
+                    class="search-button"
+                    type="submit"
+                    aria-label="Search"
+                    title="Search"
+                >
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+            </form>
+
+
+            <!-- Voice search button -->
+            <button
+                id="voiceSearchButton"
+                class="voice-button"
+                type="button"
+                aria-label="Voice search"
+                title="Voice search"
+            >
+
+                <i class="fa-solid fa-microphone"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- -----------------------------------------------------
+             RIGHT SIDE OF NAVBAR
+             ----------------------------------------------------- -->
+
+        <div class="navbar-right">
+
+            <!-- Create button -->
+            <button
+                id="createButton"
+                class="navbar-action"
+                type="button"
+                title="Create"
+            >
+
+                <i class="fa-solid fa-plus"></i>
+
+                <span>Create</span>
+
+            </button>
+
+
+            <!-- Notification button -->
+            <button
+                id="notificationButton"
+                class="icon-button notification-button"
+                type="button"
+                aria-label="Notifications"
+                title="Notifications"
+            >
+
+                <i class="fa-regular fa-bell"></i>
+
+                <!-- Notification count -->
+                <span
+                    id="notificationCount"
+                    class="notification-count"
+                >
+                    3
+                </span>
+
+            </button>
+
+
+            <!-- User profile button -->
+            <button
+                id="profileButton"
+                class="profile-button"
+                type="button"
+                aria-label="Open profile menu"
+                title="Profile"
+            >
+
+                <!-- User avatar -->
+                <img
+                    src="profile-photo.png"
+                    class="profile-image"
+                >
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN APPLICATION LAYOUT
+         ========================================================= -->
+
+    <div
+        id="appLayout"
+        class="app-layout"
+    >
+
+
+        <!-- =====================================================
+             SIDEBAR
+             ===================================================== -->
+
+        <aside
+            id="sidebar"
+            class="sidebar"
+            aria-label="Main navigation"
+        >
+
+            <!-- Sidebar top navigation -->
+            <nav class="sidebar-nav">
+
+
+                <!-- Home -->
+                <a
+                    href="#home"
+                    class="sidebar-link active"
+                    data-page="home"
+                >
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Home</span>
+
+                </a>
+
+
+                <!-- Shorts -->
+                <a
+                    href="#shorts"
+                    class="sidebar-link"
+                    data-page="shorts"
+                >
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    <span>Shorts</span>
+
+                </a>
+
+
+                <!-- Subscriptions -->
+                <a
+                    href="#subscriptions"
+                    class="sidebar-link"
+                    data-page="subscriptions"
+                >
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    <span>Subscriptions</span>
+
+                </a>
+
+
+                <!-- Divider -->
+                <div class="sidebar-divider"></div>
+
+
+                <!-- You -->
+                <a
+                    href="#you"
+                    class="sidebar-link"
+                    data-page="you"
+                >
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <span>You</span>
+
+                </a>
+
+
+                <!-- History -->
+                <a
+                    href="#history"
+                    class="sidebar-link"
+                    data-page="history"
+                >
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    <span>History</span>
+
+                </a>
+
+
+                <!-- Playlists -->
+                <a
+                    href="#playlists"
+                    class="sidebar-link"
+                    data-page="playlists"
+                >
+
+                    <i class="fa-solid fa-list"></i>
+
+                    <span>Playlists</span>
+
+                </a>
+
+
+                <!-- Watch later -->
+                <a
+                    href="#watch-later"
+                    class="sidebar-link"
+                    data-page="watch-later"
+                >
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    <span>Watch later</span>
+
+                </a>
+
+
+                <!-- Liked videos -->
+                <a
+                    href="#liked"
+                    class="sidebar-link"
+                    data-page="liked"
+                >
+
+                    <i class="fa-regular fa-thumbs-up"></i>
+
+                    <span>Liked videos</span>
+
+                </a>
+
+
+                <!-- Divider -->
+                <div class="sidebar-divider"></div>
+
+
+                <!-- Subscriptions heading -->
+                <h3 class="sidebar-heading">
+                    Subscriptions
+                </h3>
+
+
+                <!-- Channel 1 -->
+                <a
+                    href="#channel-tech"
+                    class="sidebar-channel"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80"
+                        alt="Tech World"
+                    >
+
+                    <span>Tech World</span>
+
+                </a>
+
+
+                <!-- Channel 2 -->
+                <a
+                    href="#channel-code"
+                    class="sidebar-channel"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80"
+                        alt="Code Academy"
+                    >
+
+                    <span>Code Academy</span>
+
+                </a>
+
+
+                <!-- Channel 3 -->
+                <a
+                    href="#channel-music"
+                    class="sidebar-channel"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+                        alt="Music Studio"
+                    >
+
+                    <span>Music Studio</span>
+
+                </a>
+
+
+                <!-- Channel 4 -->
+                <a
+                    href="#channel-gaming"
+                    class="sidebar-channel"
+                >
+
+                    <img
+                        src="3.png"
+                        alt="Gaming Zone"
+                    >
+
+                    <span>Gaming Zone</span>
+
+                </a>
+
+
+                <!-- Channel 5 -->
+                <a
+                    href="#channel-news"
+                    class="sidebar-channel"
+                >
+
+                    <img
+                        src="2.png"
+                        alt="Daily News"
+                    >
+
+                    <span>Daily News</span>
+
+                </a>
+
+
+                <!-- Divider -->
+                <div class="sidebar-divider"></div>
+
+
+                <!-- Explore heading -->
+                <h3 class="sidebar-heading">
+                    Explore
+                </h3>
+
+
+                <!-- Trending -->
+                <a
+                    href="#trending"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-solid fa-fire"></i>
+
+                    <span>Trending</span>
+
+                </a>
+
+
+                <!-- Music -->
+                <a
+                    href="#music"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-solid fa-music"></i>
+
+                    <span>Music</span>
+
+                </a>
+
+
+                <!-- Movies -->
+                <a
+                    href="#movies"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-solid fa-film"></i>
+
+                    <span>Movies</span>
+
+                </a>
+
+
+                <!-- Live -->
+                <a
+                    href="#live"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-solid fa-tower-broadcast"></i>
+
+                    <span>Live</span>
+
+                </a>
+
+
+                <!-- Gaming -->
+                <a
+                    href="#gaming"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    <span>Gaming</span>
+
+                </a>
+
+
+                <!-- Sports -->
+                <a
+                    href="#sports"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    <span>Sports</span>
+
+                </a>
+
+
+                <!-- Learning -->
+                <a
+                    href="#learning"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <span>Learning</span>
+
+                </a>
+
+
+                <!-- Divider -->
+                <div class="sidebar-divider"></div>
+
+
+                <!-- Settings -->
+                <a
+                    href="#settings"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Settings</span>
+
+                </a>
+
+
+                <!-- Report -->
+                <a
+                    href="#report"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-regular fa-flag"></i>
+
+                    <span>Report history</span>
+
+                </a>
+
+
+                <!-- Help -->
+                <a
+                    href="#help"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-regular fa-circle-question"></i>
+
+                    <span>Help</span>
+
+                </a>
+
+
+                <!-- Feedback -->
+                <a
+                    href="#feedback"
+                    class="sidebar-link"
+                >
+
+                    <i class="fa-regular fa-message"></i>
+
+                    <span>Send feedback</span>
+
+                </a>
+
+
+                <!-- Sidebar footer -->
+                <div class="sidebar-footer">
+
+                    <p>
+                        About &nbsp; Press &nbsp; Copyright
+                    </p>
+
+                    <p>
+                        Contact &nbsp; Creators &nbsp; Advertise
+                    </p>
+
+                    <p>
+                        Terms &nbsp; Privacy &nbsp; Policy
+                    </p>
+
+                    <small>
+                        © 2026 BharatTube India
+                    </small>
+
+                </div>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+             ===================================================== -->
+
+        <main
+            id="mainContent"
+            class="main-content"
+        >
+
+
+            <!-- =================================================
+                 CATEGORY FILTER BAR
+                 ================================================= -->
+
+            <section
+                id="categorySection"
+                class="category-section"
+                aria-label="Video categories"
+            >
+
+                <!-- All category -->
+                <button
+                    class="category-button active"
+                    data-category="all"
+                    type="button"
+                >
+                    All
+                </button>
+
+
+                <!-- Music category -->
+                <button
+                    class="category-button"
+                    data-category="music"
+                    type="button"
+                >
+                    Music
+                </button>
+
+
+                <!-- Coding category -->
+                <button
+                    class="category-button"
+                    data-category="coding"
+                    type="button"
+                >
+                    Coding
+                </button>
+
+
+                <!-- Gaming category -->
+                <button
+                    class="category-button"
+                    data-category="gaming"
+                    type="button"
+                >
+                    Gaming
+                </button>
+
+
+                <!-- News category -->
+                <button
+                    class="category-button"
+                    data-category="news"
+                    type="button"
+                >
+                    News
+                </button>
+
+
+                <!-- Movies category -->
+                <button
+                    class="category-button"
+                    data-category="movies"
+                    type="button"
+                >
+                    Movies
+                </button>
+
+
+                <!-- Sports category -->
+                <button
+                    class="category-button"
+                    data-category="sports"
+                    type="button"
+                >
+                    Sports
+                </button>
+
+
+                <!-- Education category -->
+                <button
+                    class="category-button"
+                    data-category="education"
+                    type="button"
+                >
+                    Education
+                </button>
+
+
+                <!-- Live category -->
+                <button
+                    class="category-button"
+                    data-category="live"
+                    type="button"
+                >
+                    Live
+                </button>
+
+
+                <!-- Recently uploaded -->
+                <button
+                    class="category-button"
+                    data-category="recent"
+                    type="button"
+                >
+                    Recently uploaded
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 HERO SECTION
+                 ================================================= -->
+
+            <section
+                id="heroSection"
+                class="hero-section"
+            >
+
+                <!-- Hero image -->
+                <div class="hero-image-wrapper">
+
+                    <img
+                        src="learn.png"
+                        alt="Featured video"
+                        class="hero-image"
+                    >
+
+                    <!-- Overlay -->
+                    <div class="hero-overlay"></div>
+
+                    <!-- Hero content -->
+                    <div class="hero-content">
+
+                        <span class="hero-label">
+                            FEATURED VIDEO
+                        </span>
+
+                        <h1>
+                            Learn Web Development From Zero
+                        </h1>
+
+                        <p>
+                            Complete beginner friendly HTML,
+                            CSS and JavaScript learning series.
+                        </p>
+
+                        <button
+                            id="heroWatchButton"
+                            class="primary-button"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-play"></i>
+
+                            Watch Now
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRENDING SECTION
+                 ================================================= -->
+
+            <section
+                id="trendingSection"
+                class="content-section"
+            >
+
+                <!-- Section heading -->
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-kicker">
+                            TRENDING
+                        </span>
+
+                        <h2>
+                            Trending Videos
+                        </h2>
+
+                    </div>
+
+
+                    <!-- See all button -->
+                    <button
+                        id="trendingSeeAll"
+                        class="text-button"
+                        type="button"
+                    >
+                        See all
+                    </button>
+
+                </div>
+
+
+                <!-- Trending cards -->
+                <div
+                    id="trendingGrid"
+                    class="video-grid"
+                >
+
+
+                    <!-- Video card 1 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video001"
+                        data-category="coding"
+                    >
+
+                        <!-- Thumbnail -->
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="COURSE.png"
+                                alt="HTML tutorial thumbnail"
+                                loading="lazy"
+                            >
+
+                            <!-- Video duration -->
+                            <span class="video-duration">
+                                12:45
+                            </span>
+
+                            <!-- Watch later button -->
+                            <button
+                                class="thumbnail-action watch-later"
+                                type="button"
+                                aria-label="Watch later"
+                            >
+
+                                <i class="fa-regular fa-clock"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Video information -->
+                        <div class="video-info">
+
+                            <!-- Channel avatar -->
+                            <img
+                                src="4.png"
+                                alt="Code With Sonu"
+                                class="channel-avatar"
+                            >
+
+                            <!-- Text information -->
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                   # HTML Complete Course For Beginners
+                                </h3>
+
+                                <p class="channel-name">
+                                    Code With Sonu
+                                </p>
+
+                                <p class="video-meta">
+                                    1.2M views • 2 days ago
+                                </p>
+
+                            </div>
+
+
+                            <!-- More button -->
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Video card 2 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video002"
+                        data-category="music"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="ahir.png"
+                                alt="Music video thumbnail"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                04:32
+                            </span>
+
+                            <button
+                                class="thumbnail-action watch-later"
+                                type="button"
+                                aria-label="Watch later"
+                            >
+
+                                <i class="fa-regular fa-clock"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <img
+                                src="1.png"
+                                alt="Music Studio"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    #अहीर के सान ये बाबा #Bhojpuri songs
+                                </h3>
+
+                                <p class="channel-name">
+                                    Sonu Music Studio
+                                </p>
+
+                                <p class="video-meta">
+                                    8.4M views • 15 hours ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Video card 3 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video003"
+                        data-category="gaming"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="game.png"
+                                alt="Gaming video thumbnail"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                18:20
+                            </span>
+
+                            <button
+                                class="thumbnail-action watch-later"
+                                type="button"
+                                aria-label="Watch later"
+                            >
+
+                                <i class="fa-regular fa-clock"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <img
+                                src="3.png"
+                                alt=" SKY Gaming"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    #FFMAX HIGH FPS GAMING VIDEO #gaming
+                                </h3>
+
+                                <p class="channel-name">
+                                    SKY Gaming
+                                </p>
+
+                                <p class="video-meta">
+                                    3.1M views • 11 day ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Video card 4 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video004"
+                        data-category="education"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="js.png"
+                                alt="JavaScript tutorial"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                25:10
+                            </span>
+
+                            <button
+                                class="thumbnail-action watch-later"
+                                type="button"
+                                aria-label="Watch later"
+                            >
+
+                                <i class="fa-regular fa-clock"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <img
+                                src="4.png"
+                                alt="Learn Code"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    #JavaScript In One short #coding
+                                </h3>
+
+                                <p class="channel-name">
+                                    Code With Sonu
+                                </p>
+
+                                <p class="video-meta">
+                                    95.4K views • 3 days ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Video card 5 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video005"
+                        data-category="news"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="laluyadav.png"
+                                alt="News video"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                02:50
+                            </span>
+
+                            <button
+                                class="thumbnail-action watch-later"
+                                type="button"
+                                aria-label="Watch later"
+                            >
+
+                                <i class="fa-regular fa-clock"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <img
+                                src="1.png"
+                                alt="Daily News"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                  # लालू जी के मैन #RJD
+                                </h3>
+
+                                <p class="channel-name">
+                                    Sonu Yadav
+                                </p>
+
+                                <p class="video-meta">
+                                    9.7k views • 24 hours ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Video card 6 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video006"
+                        data-category="sports"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="sports.png"
+                                alt="Sports video"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                15:35
+                            </span>
+
+                            <button
+                                class="thumbnail-action watch-later"
+                                type="button"
+                                aria-label="Watch later"
+                            >
+
+                                <i class="fa-regular fa-clock"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <img
+                                src="2.png"
+                                alt="Sports World"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    Greatest Village Sports Winning Moments #CSK
+                                </h3>
+
+                                <p class="channel-name">
+                                   SKY Sports World
+                                </p>
+
+                                <p class="video-meta">
+                                    5.2M views • 6 days ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SHORTS SECTION
+                 ================================================= -->
+
+            <section
+                id="shortsSection"
+                class="content-section shorts-section"
+            >
+
+                <!-- Shorts header -->
+                <div class="section-header">
+
+                    <div class="section-title-with-icon">
+
+                        <span class="shorts-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </span>
+
+                        <h2>
+                            Shorts
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        id="shortsSeeAll"
+                        class="text-button"
+                        type="button"
+                    >
+                        See all
+                    </button>
+
+                </div>
+
+
+                <!-- Shorts grid -->
+                <div
+                    id="shortsGrid"
+                    class="shorts-grid"
+                >
+
+
+                    <!-- Short 1 -->
+                    <article
+                        class="short-card"
+                        data-short-id="short001"
+                    >
+
+                        <div class="short-thumbnail">
+
+                            <img
+                                src="gym.png"
+                                alt="Funny short"
+                                loading="lazy"
+                            >
+
+                            <div class="short-play">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="short-info">
+
+                            <h3>
+                                This trick will save your time!
+                            </h3>
+
+                            <p>
+                                2.4M views
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Short 2 -->
+                    <article
+                        class="short-card"
+                        data-short-id="short002"
+                    >
+
+                        <div class="short-thumbnail">
+
+                            <img
+                                src="hourse.png"
+                                alt="Coding short"
+                                loading="lazy"
+                            >
+
+                            <div class="short-play">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="short-info">
+
+                            <h3>
+                                CSS trick every beginner should know
+                            </h3>
+
+                            <p>
+                                1.8M views
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Short 3 -->
+                    <article
+                        class="short-card"
+                        data-short-id="short003"
+                    >
+
+                        <div class="short-thumbnail">
+
+                            <img
+                                src="hourselover.png"
+                                alt="Gaming short"
+                                loading="lazy"
+                            >
+
+                            <div class="short-play">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="short-info">
+
+                            <h3>
+                                Best gaming moment ever!
+                            </h3>
+
+                            <p>
+                                4.5M views
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Short 4 -->
+                    <article
+                        class="short-card"
+                        data-short-id="short004"
+                    >
+
+                        <div class="short-thumbnail">
+
+                            <img
+                                src="varanshi.png"
+                                alt="Motivation short"
+                                loading="lazy"
+                            >
+
+                            <div class="short-play">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="short-info">
+
+                            <h3>
+                                Never give up on your dreams
+                            </h3>
+
+                            <p>
+                                7.1M views
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Short 5 -->
+                    <article
+                        class="short-card"
+                        data-short-id="short005"
+                    >
+
+                        <div class="short-thumbnail">
+
+                            <img
+                                src="mybirthdaay.png"
+                                alt="Technology short"
+                                loading="lazy"
+                            >
+
+                            <div class="short-play">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="short-info">
+
+                            <h3>
+                                New technology you should know
+                            </h3>
+
+                            <p>
+                                950K views
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Short 6 -->
+                    <article
+                        class="short-card"
+                        data-short-id="short006"
+                    >
+
+                        <div class="short-thumbnail">
+
+                            <img
+                                src="cricket.png"
+                                alt="Fitness short"
+                                loading="lazy"
+                            >
+
+                            <div class="short-play">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="short-info">
+
+                            <h3>
+                                Simple workout tips
+                            </h3>
+
+                            <p>
+                                3.3M views
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RECOMMENDED VIDEOS
+                 ================================================= -->
+
+            <section
+                id="recommendedSection"
+                class="content-section"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-kicker">
+                            FOR YOU
+                        </span>
+
+                        <h2>
+                            Recommended
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="recommendedGrid"
+                    class="video-grid"
+                >
+
+
+                    <!-- Recommended 1 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video007"
+                        data-category="coding"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="mybirthdaay1.png"
+                                alt="CSS course"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                11:25
+                            </span>
+
+                        </div>
+
+                        <div class="video-info">
+
+                            <img
+                                src="2.png"
+                                alt="CSS Master"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    #Birthday Celebration at Wini Hotel, #Ara.
+                                </h3>
+
+                                <p class="channel-name">
+                                    Sonu's vlogs
+                                </p>
+
+                                <p class="video-meta">
+                                    780K views • 1 month ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Recommended 2 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video008"
+                        data-category="education"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="baba.png"
+                                alt="Programming course"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                24:10
+                            </span>
+
+                        </div>
+
+                        <div class="video-info">
+
+                            <img
+                                src="3.png"
+                                alt="Programming Hub"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    #PremanandJi Maharaj Live from Vrindavan #RadheRadhe 🙏
+                                </h3>
+
+                                <p class="channel-name">
+                                    Sonu Yadav
+                                </p>
+
+                                <p class="video-meta">
+                                    1.5M views • 3 weeks ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Recommended 3 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video009"
+                        data-category="music"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="python.png"
+                                alt="Music album"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                52:42
+                            </span>
+
+                        </div>
+
+                        <div class="video-info">
+
+                            <img
+                                src="4.png"
+                                alt="Music World"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    #Learn Python: From Basic to Advanced#Coding
+                                </h3>
+
+                                <p class="channel-name">
+                                    Code With Sonu
+                                </p>
+
+                                <p class="video-meta">
+                                    6.8K views • 23 days ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Recommended 4 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video010"
+                        data-category="gaming"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="gym1.png"
+                                alt="Gaming tutorial"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                22:18
+                            </span>
+
+                        </div>
+
+                        <div class="video-info">
+
+                            <img
+                                src="dp.png"
+                                alt="Pro Gamer"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    #WORKOUT
+                                </h3>
+
+                                <p class="channel-name">
+                                    Fitness
+                                </p>
+
+                                <p class="video-meta">
+                                    2.9k views • 5 days ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Recommended 5 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video011"
+                        data-category="news"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="s.png"
+                                alt="Technology news"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                11:08
+                            </span>
+
+                        </div>
+
+                        <div class="video-info">
+
+                            <img
+                                src="1.png"
+                                alt="Tech News"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    #The beauty of the hotel
+                                </h3>
+
+                                <p class="channel-name">
+                                    Explore new places
+                                </p>
+
+                                <p class="video-meta">
+                                    628K views • 8 month ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Recommended 6 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video012"
+                        data-category="movies"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="dhavk1.png"
+                                alt="Movie review"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                5:44
+                            </span>
+
+                        </div>
+
+                        <div class="video-info">
+
+                            <img
+                                src="dp.png"
+                                alt="Movie Review"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                   #RUNNER
+                                </h3>
+
+                                <p class="channel-name">
+                                    fitness
+                                </p>
+
+                                <p class="video-meta">
+                                    1.1M views • 17 day ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Recommended 7 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video013"
+                        data-category="sports"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="varanshi1.png"
+                                alt="Football highlights"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                13:50
+                            </span>
+
+                        </div>
+
+                        <div class="video-info">
+
+                            <img
+                                src="2.png"
+                                alt="Football Central"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                   #Top 5 Iconic Spots in Banaras
+                                </h3>
+
+                                <p class="channel-name">
+                                    Explore new places
+                                </p>
+
+                                <p class="video-meta">
+                                    1.8k views • 14 days ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Recommended 8 -->
+                    <article
+                        class="video-card"
+                        data-video-id="video014"
+                        data-category="education"
+                    >
+
+                        <div class="thumbnail-container">
+
+                            <img
+                                src="mindset.png"
+                                alt="Cricket Match"
+                                loading="lazy"
+                            >
+
+                            <span class="video-duration">
+                                12:15
+                            </span>
+
+                        </div>
+
+                        <div class="video-info">
+
+                            <img
+                                src="2.png"
+                                alt="Python Academy"
+                                class="channel-avatar"
+                            >
+
+                            <div class="video-text">
+
+                                <h3 class="video-title">
+                                    #Everything depends on our mindset.
+                                </h3>
+
+                                <p class="channel-name">
+                                    sonu's vlogs
+                                </p>
+
+                                <p class="video-meta">
+                                    1.9k views • 2 weeks ago
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="more-button"
+                                type="button"
+                                aria-label="More options"
+                            >
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LIVE SECTION
+                 ================================================= -->
+
+            <section
+                id="liveSection"
+                class="content-section"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="live-indicator">
+                            LIVE
+                        </span>
+
+                        <h2>
+                            Live Now
+                        </h2>
+
+                    </div>
+
+                    <button
+                        class="text-button"
+                        id="liveSeeAll"
+                        type="button"
+                    >
+                        See all
+                    </button>
+
+                </div>
+
+
+                <div class="live-grid">
+
+
+                    <!-- Live card 1 -->
+                    <article
+                        class="live-card"
+                        data-live-id="live001"
+                    >
+
+                        <div class="live-thumbnail">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+                                alt="Live coding stream"
+                                loading="lazy"
+                            >
+
+                            <span class="live-badge">
+                                <i class="fa-solid fa-circle"></i>
+                                LIVE
+                            </span>
+
+                            <span class="viewer-count">
+                                12.4K watching
+                            </span>
+
+                        </div>
+
+                        <div class="live-info">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+                                alt="Live Coder"
+                                class="channel-avatar"
+                            >
+
+                            <div>
+
+                                <h3>
+                                    Live Coding Session
+                                </h3>
+
+                                <p>
+                                    Live Coder
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Live card 2 -->
+                    <article
+                        class="live-card"
+                        data-live-id="live002"
+                    >
+
+                        <div class="live-thumbnail">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80"
+                                alt="Live gaming stream"
+                                loading="lazy"
+                            >
+
+                            <span class="live-badge">
+                                <i class="fa-solid fa-circle"></i>
+                                LIVE
+                            </span>
+
+                            <span class="viewer-count">
+                                25.7K watching
+                            </span>
+
+                        </div>
+
+                        <div class="live-info">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"
+                                alt="Streamer"
+                                class="channel-avatar"
+                            >
+
+                            <div>
+
+                                <h3>
+                                    Championship Gaming Live
+                                </h3>
+
+                                <p>
+                                    Pro Streamer
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Live card 3 -->
+                    <article
+                        class="live-card"
+                        data-live-id="live003"
+                    >
+
+                        <div class="live-thumbnail">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80"
+                                alt="Live music stream"
+                                loading="lazy"
+                            >
+
+                            <span class="live-badge">
+                                <i class="fa-solid fa-circle"></i>
+                                LIVE
+                            </span>
+
+                            <span class="viewer-count">
+                                8.9K watching
+                            </span>
+
+                        </div>
+
+                        <div class="live-info">
+
+                            <img
+                                src=""
+                                alt="Live Music"
+                                class="channel-avatar"3.png
+                            >
+
+                            <div>
+
+                                <h3>
+                                    Live Music Concert
+                                </h3>
+
+                                <p>
+                                    Music Live
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOAD MORE SECTION
+                 ================================================= -->
+
+            <section
+                id="loadMoreSection"
+                class="load-more-section"
+            >
+
+                <!--
+                    JavaScript बाद में इस button को use करके
+                    additional videos add कर सकता है।
+                -->
+
+                <button
+                    id="loadMoreButton"
+                    class="load-more-button"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Load More Videos
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 NO RESULTS MESSAGE
+                 ================================================= -->
+
+            <section
+                id="noResults"
+                class="no-results hidden"
+            >
+
+                <div class="no-results-icon">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </div>
+
+                <h2>
+                    No results found
+                </h2>
+
+                <p>
+                    Try different keywords or remove filters.
+                </p>
+
+                <button
+                    id="resetSearchButton"
+                    class="primary-button"
+                    type="button"
+                >
+
+                    Reset Search
+
+                </button>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         VIDEO PLAYER MODAL
+         ========================================================= -->
+
+    <div
+        id="videoModal"
+        class="modal video-modal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+
+        <div
+            class="video-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="videoModalTitle"
+        >
+
+            <!-- Close button -->
+            <button
+                id="closeVideoModal"
+                class="modal-close-button"
+                type="button"
+                aria-label="Close video"
+                data-close-modal="true"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <!-- Video player -->
+            <div class="video-player-wrapper">
+
+                <video
+                    id="mainVideoPlayer"
+                    class="main-video-player"
+                    controls
+                    preload="metadata"
+                    poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80"
+                >
+
+                    <!--
+                        Actual video source JavaScript
+                        dynamically set कर सकता है।
+                    -->
+
+                    <source
+                        src=""
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support HTML5 video.
+
+                </video>
+
+            </div>
+
+
+            <!-- Video title -->
+            <div class="modal-video-information">
+
+                <h2 id="videoModalTitle" data-video-title>
+                    Video Title
+                </h2>
+
+                <p id="videoModalDescription" data-video-description>
+                    Video description will appear here.
+                </p>
+
+
+                <!-- Video actions -->
+                <div class="video-action-bar">
+
+                    <!-- Like -->
+                    <button
+                        id="likeButton"
+                        class="action-button"
+                        type="button"
+                        data-modal-action="like"
+                        data-video-like="true"
+                    >
+
+                        <i class="fa-regular fa-thumbs-up"></i>
+
+                        <span id="likeCount">
+                            0
+                        </span>
+
+                    </button>
+
+
+                    <!-- Subscribe -->
+                    <button
+                        id="subscribeButton"
+                        class="action-button"
+                        type="button"
+                        data-modal-action="subscribe"
+                        data-video-subscribe="true"
+                    >
+                        Subscribe
+                    </button>
+
+
+                    <!-- Dislike -->
+                    <button
+                        id="dislikeButton"
+                        class="action-button"
+                        type="button"
+                        data-modal-action="dislike"
+                    >
+
+                        <i class="fa-regular fa-thumbs-down"></i>
+
+                    </button>
+
+
+                    <!-- Share -->
+                    <button
+                        id="shareButton"
+                        class="action-button"
+                        type="button"
+                        data-modal-action="share"
+                    >
+
+                        <i class="fa-solid fa-share"></i>
+
+                        Share
+
+                    </button>
+
+
+                    <!-- Download -->
+                    <button
+                        id="downloadButton"
+                        class="action-button"
+                        type="button"
+                        data-modal-action="download"
+                    >
+
+                        <i class="fa-solid fa-download"></i>
+
+                        Download
+
+                    </button>
+
+
+                    <!-- Save -->
+                    <button
+                        id="saveVideoButton"
+                        class="action-button"
+                        type="button"
+                        data-modal-action="save"
+                        data-video-save="true"
+                    >
+
+                        <i class="fa-regular fa-bookmark"></i>
+
+                        Save
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         PROFILE DROPDOWN
+         ========================================================= -->
+
+    <div
+        id="profileDropdown"
+        class="dropdown profile-dropdown"
+        aria-hidden="true"
+    >
+
+        <!-- Profile header -->
+        <div class="dropdown-profile-header">
+
+            <img
+                src="profile-photo.png"
+                alt="Profile"
+            >
+
+            <div>
+
+                <strong>
+                    SONU YADAV
+                </strong>
+
+                <span>
+                    @creatorsonu
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="dropdown-divider"></div>
+
+
+        <!-- Account option -->
+        <button
+            class="dropdown-item"
+            type="button"
+            data-action="account"
+        >
+
+            <i class="fa-regular fa-user"></i>
+
+            <span>
+                Your account
+            </span>
+
+        </button>
+
+
+        <!-- Appearance -->
+        <button
+            class="dropdown-item"
+            type="button"
+            data-action="appearance"
+        >
+
+            <i class="fa-solid fa-moon"></i>
+
+            <span>
+                Appearance
+            </span>
+
+        </button>
+
+
+        <!-- Language -->
+        <button
+            class="dropdown-item"
+            type="button"
+            data-action="language"
+        >
+
+            <i class="fa-solid fa-language"></i>
+
+            <span>
+                Language
+            </span>
+
+        </button>
+
+
+        <!-- Restricted mode -->
+        <button
+            class="dropdown-item"
+            type="button"
+            data-action="restricted"
+        >
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>
+                Restricted mode
+            </span>
+
+        </button>
+
+
+        <div class="dropdown-divider"></div>
+
+
+        <!-- Sign out -->
+        <button
+            class="dropdown-item danger"
+            type="button"
+            data-action="logout"
+        >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>
+                Sign out
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
+         NOTIFICATION PANEL
+         ========================================================= -->
+
+    <div
+        id="notificationPanel"
+        class="notification-panel"
+        aria-hidden="true"
+    >
+
+        <!-- Notification header -->
+        <div class="notification-header">
+
+            <h2>
+                Notifications
+            </h2>
+
+            <button
+                id="notificationSettings"
+                class="icon-button small"
+                type="button"
+                aria-label="Notification settings"
+            >
+
+                <i class="fa-solid fa-gear"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- Notification list -->
+        <div
+            id="notificationList"
+            class="notification-list"
+        >
+
+
+            <!-- Notification 1 -->
+            <article class="notification-item unread">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+                    alt="Code Academy"
+                >
+
+                <div>
+
+                    <p>
+
+                        <strong>
+                            Code Academy
+                        </strong>
+
+                        uploaded a new video.
+
+                    </p>
+
+                    <time>
+                        10 minutes ago
+                    </time>
+
+                </div>
+
+            </article>
+
+
+            <!-- Notification 2 -->
+            <article class="notification-item unread">
+
+                <img
+                    src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=200&q=80"
+                    alt="Music Studio"
+                >
+
+                <div>
+
+                    <p>
+
+                        <strong>
+                            Music Studio
+                        </strong>
+
+                        started a live stream.
+
+                    </p>
+
+                    <time>
+                        1 hour ago
+                    </time>
+
+                </div>
+
+            </article>
+
+
+            <!-- Notification 3 -->
+            <article class="notification-item unread">
+
+                <img
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"
+                    alt="Gaming Zone"
+                >
+
+                <div>
+
+                    <p>
+
+                        <strong>
+                            Gaming Zone
+                        </strong>
+
+                        replied to your comment.
+
+                    </p>
+
+                    <time>
+                        3 hours ago
+                    </time>
+
+                </div>
+
+            </article>
+
+
+            <!-- Notification 4 -->
+            <article class="notification-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=200&q=80"
+                    alt="Daily News"
+                >
+
+                <div>
+
+                    <p>
+
+                        <strong>
+                            Daily News
+                        </strong>
+
+                        published a new update.
+
+                    </p>
+
+                    <time>
+                        Yesterday
+                    </time>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         CREATE MENU MODAL
+         ========================================================= -->
+
+    <div
+        id="createModal"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+
+        <div
+            class="small-modal-content"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <!-- Modal heading -->
+            <div class="modal-header">
+
+                <h2>
+                    Create
+                </h2>
+
+                <button
+                    id="closeCreateModal"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Close"
+                    data-close-modal="true"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- Create options -->
+            <div class="create-options">
+
+
+                <!-- Upload video -->
+                <button
+                    class="create-option"
+                    type="button"
+                    data-create="video"
+                >
+
+                    <span class="create-option-icon">
+
+                        <i class="fa-solid fa-video"></i>
+
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Upload video
+                        </strong>
+
+                        <small>
+                            Upload a video from your device
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <!-- Go live -->
+                <button
+                    class="create-option"
+                    type="button"
+                    data-create="live"
+                >
+
+                    <span class="create-option-icon">
+
+                        <i class="fa-solid fa-tower-broadcast"></i>
+
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Go live
+                        </strong>
+
+                        <small>
+                            Start a live stream
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <!-- Create post -->
+                <button
+                    class="create-option"
+                    type="button"
+                    data-create="post"
+                >
+
+                    <span class="create-option-icon">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Create post
+                        </strong>
+
+                        <small>
+                            Share an update with your audience
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         SEARCH SUGGESTIONS
+         ========================================================= -->
+
+    <div
+        id="searchSuggestions"
+        class="search-suggestions"
+        aria-hidden="true"
+    >
+
+        <!-- Suggestion item -->
+        <button
+            class="suggestion-item"
+            type="button"
+            data-suggestion="HTML tutorial"
+        >
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>
+                HTML tutorial
+            </span>
+
+        </button>
+
+
+        <button
+            class="suggestion-item"
+            type="button"
+            data-suggestion="CSS tutorial"
+        >
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>
+                CSS tutorial
+            </span>
+
+        </button>
+
+
+        <button
+            class="suggestion-item"
+            type="button"
+            data-suggestion="JavaScript course"
+        >
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>
+                JavaScript course
+            </span>
+
+        </button>
+
+
+        <button
+            class="suggestion-item"
+            type="button"
+            data-suggestion="Python programming"
+        >
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>
+                Python programming
+            </span>
+
+        </button>
+
+
+        <button
+            class="suggestion-item"
+            type="button"
+            data-suggestion="Gaming"
+        >
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>
+                Gaming
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
+         COMMENTS MODAL
+         ========================================================= -->
+
+    <div
+        id="commentsModal"
+        class="modal comments-modal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+
+        <div
+            class="comments-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="commentsTitle"
+        >
+
+            <!-- Comments header -->
+            <div class="comments-header">
+
+                <div>
+
+                    <h2 id="commentsTitle">
+                        Comments
+                    </h2>
+
+                    <span id="commentCount">
+                        0 comments
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="closeCommentsModal"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Close comments"
+                    data-close-modal="true"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- Comment input -->
+            <form
+                id="commentForm"
+                class="comment-form"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+                    alt="Your profile"
+                    class="comment-avatar"
+                >
+
+                <div class="comment-input-wrapper">
+
+                    <input
+                        id="commentInput"
+                        type="text"
+                        name="comment"
+                        placeholder="Add a comment..."
+                        maxlength="500"
+                    >
+
+                    <div class="comment-form-actions">
+
+                        <button
+                            id="cancelComment"
+                            type="button"
+                            class="secondary-button"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            id="submitComment"
+                            type="submit"
+                            class="primary-button"
+                        >
+                            Comment
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+
+            <!-- Comments list -->
+            <div
+                id="commentsList"
+                class="comments-list"
+            >
+
+
+                <!-- Comment 1 -->
+                <article class="comment">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1541534401786-2077eed87a74?auto=format&fit=crop&w=200&q=80"
+                        alt="User"
+                        class="comment-avatar"
+                    >
+
+                    <div class="comment-body">
+
+                        <div class="comment-author">
+
+                            <strong>
+                                Rahul
+                            </strong>
+
+                            <time>
+                                2 hours ago
+                            </time>
+
+                        </div>
+
+                        <p>
+                            This tutorial was very helpful.
+                            Thanks for explaining everything!
+                        </p>
+
+                        <div class="comment-actions">
+
+                            <button
+                                type="button"
+                                class="comment-action"
+                            >
+
+                                <i class="fa-regular fa-thumbs-up"></i>
+
+                                124
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="comment-action"
+                            >
+
+                                <i class="fa-regular fa-thumbs-down"></i>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="comment-action reply-button"
+                            >
+                                Reply
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Comment 2 -->
+                <article class="comment">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80"
+                        alt="User"
+                        class="comment-avatar"
+                    >
+
+                    <div class="comment-body">
+
+                        <div class="comment-author">
+
+                            <strong>
+                                Aman
+                            </strong>
+
+                            <time>
+                                5 hours ago
+                            </time>
+
+                        </div>
+
+                        <p>
+                            Please make a complete JavaScript
+                            project next.
+                        </p>
+
+                        <div class="comment-actions">
+
+                            <button
+                                type="button"
+                                class="comment-action"
+                            >
+
+                                <i class="fa-regular fa-thumbs-up"></i>
+
+                                86
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="comment-action"
+                            >
+
+                                <i class="fa-regular fa-thumbs-down"></i>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="comment-action reply-button"
+                            >
+                                Reply
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         SHARE MODAL
+         ========================================================= -->
+
+    <div
+        id="shareModal"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+
+        <div
+            class="share-modal-content"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <!-- Share header -->
+            <div class="modal-header">
+
+                <h2>
+                    Share
+                </h2>
+
+                <button
+                    id="closeShareModal"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Close"
+                    data-close-modal="true"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- Social sharing options -->
+            <div class="share-options">
+
+
+                <!-- Copy link -->
+                <button
+                    id="copyLinkButton"
+                    class="share-option"
+                    type="button"
+                >
+
+                    <span class="share-icon">
+                        <i class="fa-solid fa-link"></i>
+                    </span>
+
+                    <span>
+                        Copy link
+                    </span>
+
+                </button>
+
+
+                <!-- WhatsApp -->
+                <button
+                    class="share-option"
+                    type="button"
+                    data-share="whatsapp"
+                >
+
+                    <span class="share-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </span>
+
+                    <span>
+                        WhatsApp
+                    </span>
+
+                </button>
+
+
+                <!-- Facebook -->
+                <button
+                    class="share-option"
+                    type="button"
+                    data-share="facebook"
+                >
+
+                    <span class="share-icon">
+                        <i class="fa-brands fa-facebook"></i>
+                    </span>
+
+                    <span>
+                        Facebook
+                    </span>
+
+                </button>
+
+
+                <!-- X -->
+                <button
+                    class="share-option"
+                    type="button"
+                    data-share="twitter"
+                >
+
+                    <span class="share-icon">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </span>
+
+                    <span>
+                        X
+                    </span>
+
+                </button>
+
+
+                <!-- Email -->
+                <button
+                    class="share-option"
+                    type="button"
+                    data-share="email"
+                >
+
+                    <span class="share-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+
+                    <span>
+                        Email
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <!-- Share URL -->
+            <div class="share-url">
+
+                <label for="shareUrlInput">
+                    Video URL
+                </label>
+
+                <div class="share-url-row">
+
+                    <input
+                        id="shareUrlInput"
+                        type="text"
+                        readonly
+                        value="https://videohub.example/video/123"
+                        data-share-url="true"
+                    >
+
+                    <button
+                        id="copyShareUrl"
+                        class="primary-button"
+                        type="button"
+                        data-copy-share-url="true"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         SETTINGS MODAL
+         ========================================================= -->
+
+    <div
+        id="settingsModal"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+
+        <div
+            class="settings-modal-content"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <!-- Settings heading -->
+            <div class="modal-header">
+
+                <h2>
+                    Settings
+                </h2>
+
+                <button
+                    id="closeSettingsModal"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Close settings"
+                    data-close-modal="true"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- Settings navigation -->
+            <div class="settings-layout">
+
+
+                <!-- Settings menu -->
+                <nav class="settings-menu">
+
+                    <button
+                        class="settings-menu-item active"
+                        type="button"
+                        data-setting="general"
+                    >
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        General
+
+                    </button>
+
+
+                    <button
+                        class="settings-menu-item"
+                        type="button"
+                        data-setting="playback"
+                    >
+
+                        <i class="fa-solid fa-play"></i>
+
+                        Playback
+
+                    </button>
+
+
+                    <button
+                        class="settings-menu-item"
+                        type="button"
+                        data-setting="privacy"
+                    >
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        Privacy
+
+                    </button>
+
+
+                    <button
+                        class="settings-menu-item"
+                        type="button"
+                        data-setting="notifications"
+                    >
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        Notifications
+
+                    </button>
+
+
+                    <button
+                        class="settings-menu-item"
+                        type="button"
+                        data-setting="advanced"
+                    >
+
+                        <i class="fa-solid fa-sliders"></i>
+
+                        Advanced
+
+                    </button>
+
+                </nav>
+
+
+                <!-- Settings content -->
+                <div class="settings-content">
+
+
+                    <!-- General settings -->
+                    <section
+                        class="settings-panel active"
+                        data-panel="general"
+                    >
+
+                        <h3>
+                            General
+                        </h3>
+
+                        <p>
+                            Manage general application preferences.
+                        </p>
+
+
+                        <!-- Appearance -->
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Dark mode
+                                </strong>
+
+                                <small>
+                                    Change application appearance
+                                </small>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    id="darkModeToggle"
+                                    type="checkbox"
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Autoplay -->
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Autoplay
+                                </strong>
+
+                                <small>
+                                    Automatically play next video
+                                </small>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    id="autoplayToggle"
+                                    type="checkbox"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Preview -->
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Video previews
+                                </strong>
+
+                                <small>
+                                    Show video preview on hover
+                                </small>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    id="previewToggle"
+                                    type="checkbox"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Playback settings -->
+                    <section
+                        class="settings-panel"
+                        data-panel="playback"
+                    >
+
+                        <h3>
+                            Playback
+                        </h3>
+
+                        <p>
+                            Configure video playback behavior.
+                        </p>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Default quality
+                                </strong>
+
+                                <small>
+                                    Select preferred video quality
+                                </small>
+
+                            </div>
+
+                            <select
+                                id="videoQuality"
+                                name="quality"
+                            >
+
+                                <option value="auto">
+                                    Auto
+                                </option>
+
+                                <option value="1080">
+                                    1080p
+                                </option>
+
+                                <option value="720">
+                                    720p
+                                </option>
+
+                                <option value="480">
+                                    480p
+                                </option>
+
+                                <option value="360">
+                                    360p
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Playback speed
+                                </strong>
+
+                                <small>
+                                    Default playback speed
+                                </small>
+
+                            </div>
+
+                            <select
+                                id="playbackSpeed"
+                                name="speed"
+                            >
+
+                                <option value="0.5">
+                                    0.5x
+                                </option>
+
+                                <option value="0.75">
+                                    0.75x
+                                </option>
+
+                                <option value="1" selected>
+                                    Normal
+                                </option>
+
+                                <option value="1.25">
+                                    1.25x
+                                </option>
+
+                                <option value="1.5">
+                                    1.5x
+                                </option>
+
+                                <option value="2">
+                                    2x
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Privacy settings -->
+                    <section
+                        class="settings-panel"
+                        data-panel="privacy"
+                    >
+
+                        <h3>
+                            Privacy
+                        </h3>
+
+                        <p>
+                            Control your privacy preferences.
+                        </p>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Watch history
+                                </strong>
+
+                                <small>
+                                    Save your watched videos
+                                </small>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    id="historyToggle"
+                                    type="checkbox"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Search history
+                                </strong>
+
+                                <small>
+                                    Save your searches
+                                </small>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    id="searchHistoryToggle"
+                                    type="checkbox"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Notification settings -->
+                    <section
+                        class="settings-panel"
+                        data-panel="notifications"
+                    >
+
+                        <h3>
+                            Notifications
+                        </h3>
+
+                        <p>
+                            Choose which notifications you receive.
+                        </p>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    New videos
+                                </strong>
+
+                                <small>
+                                    Notify when subscribed channels upload
+                                </small>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    id="newVideoNotifications"
+                                    type="checkbox"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Live streams
+                                </strong>
+
+                                <small>
+                                    Notify about live streams
+                                </small>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    id="liveNotifications"
+                                    type="checkbox"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Comments
+                                </strong>
+
+                                <small>
+                                    Notify about comment replies
+                                </small>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    id="commentNotifications"
+                                    type="checkbox"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Advanced settings -->
+                    <section
+                        class="settings-panel"
+                        data-panel="advanced"
+                    >
+
+                        <h3>
+                            Advanced
+                        </h3>
+
+                        <p>
+                            Advanced application settings.
+                        </p>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <strong>
+                                    Developer mode
+                                </strong>
+
+                                <small>
+                                    Enable developer features
+                                </small>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    id="developerModeToggle"
+                                    type="checkbox"
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <button
+                            id="clearAppData"
+                            class="danger-button"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-trash"></i>
+
+                            Clear application data
+
+                        </button>
+
+                        <button
+                            id="saveSettingsButton"
+                            class="primary-button"
+                            type="button"
+                            style="margin-top: 18px;"
+                        >
+                            Save changes
+                        </button>
+
+                    </section>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         TOAST NOTIFICATION
+         ========================================================= -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    >
+
+        <span
+            id="toastIcon"
+            class="toast-icon"
+        >
+
+            <i class="fa-solid fa-check"></i>
+
+        </span>
+
+        <span
+            id="toastMessage"
+            class="toast-message"
+        >
+            Action completed successfully.
+        </span>
+
+        <button
+            id="closeToast"
+            class="toast-close"
+            type="button"
+            aria-label="Close notification"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
+         CONFIRMATION MODAL
+         ========================================================= -->
+
+    <div
+        id="confirmModal"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+
+        <div
+            class="confirm-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="confirmTitle"
+        >
+
+            <!-- Confirmation icon -->
+            <div class="confirm-icon">
+
+                <i class="fa-solid fa-circle-question"></i>
+
+            </div>
+
+
+            <h2 id="confirmTitle">
+                Are you sure?
+            </h2>
+
+
+            <p id="confirmMessage">
+                Do you want to continue this action?
+            </p>
+
+
+            <!-- Confirmation buttons -->
+            <div class="confirm-actions">
+
+                <button
+                    id="cancelConfirm"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    id="acceptConfirm"
+                    class="danger-button"
+                    type="button"
+                >
+                    Continue
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         MOBILE BOTTOM NAVIGATION
+         ========================================================= -->
+
+    <nav
+        id="mobileBottomNav"
+        class="mobile-bottom-nav"
+        aria-label="Mobile navigation"
+    >
+
+
+        <!-- Home -->
+        <button
+            class="mobile-nav-item active"
+            type="button"
+            data-page="home"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Home
+            </span>
+
+        </button>
+
+
+        <!-- Shorts -->
+        <button
+            class="mobile-nav-item"
+            type="button"
+            data-page="shorts"
+        >
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <span>
+                Shorts
+            </span>
+
+        </button>
+
+
+        <!-- Create -->
+        <button
+            class="mobile-nav-create"
+            id="mobileCreateButton"
+            type="button"
+            aria-label="Create"
+        >
+
+            <i class="fa-solid fa-plus"></i>
+
+        </button>
+
+
+        <!-- Subscriptions -->
+        <button
+            class="mobile-nav-item"
+            type="button"
+            data-page="subscriptions"
+        >
+
+            <i class="fa-solid fa-layer-group"></i>
+
+            <span>
+                Subscriptions
+            </span>
+
+        </button>
+
+
+        <!-- You -->
+        <button
+            class="mobile-nav-item"
+            type="button"
+            data-page="you"
+        >
+
+            <i class="fa-regular fa-user"></i>
+
+            <span>
+                You
+            </span>
+
+        </button>
+
+    </nav>
+
+
+    <!-- =========================================================
+         HIDDEN FILE INPUT
+         ========================================================= -->
+
+    <!--
+        Upload video option पर click करने पर
+        JavaScript इस input को trigger कर सकता है।
+    -->
+
+    <input
+        id="videoUploadInput"
+        type="file"
+        accept="video/*"
+        hidden
+    >
+
+
+    <!-- =========================================================
+         HIDDEN IMAGE INPUT
+         ========================================================= -->
+
+    <input
+        id="imageUploadInput"
+        type="file"
+        accept="image/*"
+        hidden
+    >
+
+
+    <!-- =========================================================
+         ACCESSIBILITY LIVE REGION
+         ========================================================= -->
+
+    <div
+        id="accessibilityMessage"
+        class="sr-only"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT FILE
+         ========================================================= -->
+
+    <!--
+        defer का मतलब:
+        HTML parsing के बाद JavaScript execute होगा।
+    -->
+
+    <script
+        src="app.js"
+        defer
+    ></script>
+
+
+</body>
+
+</html>
